@@ -8,17 +8,19 @@ c.open()
 
 _15minutes = 10*60
 
+print("EE")
 # c.write_single_coil(0,0) # relay0
 # c.write_single_coil(1,0) # relay1
 # c.write_single_coil(2,0) # relay2
 
 #off all
+"""
 print("0")
 	
 c.write_single_coil(1,1) # relay1
 c.write_single_coil(2,1) # relay2
 time.sleep(60)
-
+"""
 # # 001
 # print("1")
 # c.write_single_coil(0,0) # relay0
