@@ -135,7 +135,7 @@ def insertdb(message):
 				app3 = value["appliance3"]
 				c.write_single_coil(2, app3)
 
-th1 = threading.Thread(target = control_plc).start()
+th1 = threading.Thread(target = control_plc()).start()
 
 client = mqtt.Client()
 client.on_connect = on_connect
