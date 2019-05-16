@@ -113,29 +113,28 @@ def insertdb(message):
     else:
         print("Miss some data")
 
-#         time.sleep(10)
-	def control_plc():
-		global value
-		print("Control plc")
-		while (True):
-			ref = db.reference('connect_plc')
-			value = ref.get()
-			if(app1 != value["appliance1"]):
-				print("app1 changed : " + str(value["appliance1"]))
-				app1 = value["appliance1"]
-				c.write_single_coil(0, app1)
+def control_plc():
+	global value
+	print("Control plc")
+	while (True):
+		ref = db.reference('connect_plc')
+		value = ref.get()
+		if(app1 != value["appliance1"]):
+			print("app1 changed : " + str(value["appliance1"]))
+			app1 = value["appliance1"]
+			c.write_single_coil(0, app1)
 
-			if(app2 != value["appliance2"]):
-				print("app2 changed : " + str(value["appliance2"]))
-				app2 = value["appliance2"]
-				c.write_single_coil(1, app2)
+		if(app2 != value["appliance2"]):
+			print("app2 changed : " + str(value["appliance2"]))
+			app2 = value["appliance2"]
+			c.write_single_coil(1, app2)
 
-			if(app3 != value["appliance3"]):
-				print("app3 changed : " + str(value["appliance3"]))
-				app3 = value["appliance3"]
-				c.write_single_coil(2, app3)
+		if(app3 != value["appliance3"]):
+			print("app3 changed : " + str(value["appliance3"]))
+			app3 = value["appliance3"]
+			c.write_single_coil(2, app3)
 
-th1 = threading.Thread(target = control_plc()).start()
+th1 = threading.Thread(target = control_plc.start()
 
 client = mqtt.Client()
 client.on_connect = on_connect
