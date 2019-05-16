@@ -114,7 +114,7 @@ def insertdb(message):
         print("Miss some data")
 
 def control_plc():
-	global value
+	global value, app1, app2, app3
 	print("Control plc")
 	while (True):
 		ref = db.reference('connect_plc')
